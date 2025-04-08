@@ -1,23 +1,29 @@
 import { useState } from 'react'
 import './App.css'
-import ProductCard from './components/product_cart'
-import Header from './components/header'
+import LoginPage from './pages/login_page'
+import AdminPage from './pages/adminPage'
+import Home from './pages/home'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+
 
 
 function App() {
 
 
   return (
+
+
     <> 
-    <div className="w-full flex flex-col h-screen bg-pink-300">
-    <div className='w-[500px] flex flex-col  items-center h-[500px] bg-gray-300 relative' >
-      <div className="w-[90px] h-[90px] bg-blue-500 fixed right-[50px] bottom-[50px]"></div>  
-      <div className="w-[90px] h-[90px] bg-yellow-500"></div> 
-      <div className="w-[90px] h-[90px] bg-green-500"></div> 
-      <div className="w-[90px] h-[90px] bg-red-500 absolute right-[50px] bottom-[50px]"></div> 
-    </div>  
-    </div>
-         
+    <BrowserRouter>
+    <Routes  path="/*">    
+    <Route path='/' element={<Home/>} />
+    <Route path='/login' element={<LoginPage />} />
+    <Route path='/admin/*' element={<AdminPage/>} />
+    <Route path='/*' element={<h1>404 not found</h1>} />
+    </Routes>
+    </BrowserRouter>
+   
+    
        
     </>
   )
